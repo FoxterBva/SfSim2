@@ -30,6 +30,7 @@
 		{
 			this.flpSimulations = new System.Windows.Forms.FlowLayoutPanel();
 			this.btnStartSimulation = new System.Windows.Forms.Button();
+			this.btnAddSimCase = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// flpSimulations
@@ -39,13 +40,13 @@
 			this.flpSimulations.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 			this.flpSimulations.Location = new System.Drawing.Point(12, 33);
 			this.flpSimulations.Name = "flpSimulations";
-			this.flpSimulations.Size = new System.Drawing.Size(708, 340);
+			this.flpSimulations.Size = new System.Drawing.Size(801, 340);
 			this.flpSimulations.TabIndex = 0;
 			this.flpSimulations.WrapContents = false;
 			// 
 			// btnStartSimulation
 			// 
-			this.btnStartSimulation.Location = new System.Drawing.Point(645, 379);
+			this.btnStartSimulation.Location = new System.Drawing.Point(738, 379);
 			this.btnStartSimulation.Name = "btnStartSimulation";
 			this.btnStartSimulation.Size = new System.Drawing.Size(75, 23);
 			this.btnStartSimulation.TabIndex = 1;
@@ -53,11 +54,22 @@
 			this.btnStartSimulation.UseVisualStyleBackColor = true;
 			this.btnStartSimulation.Click += new System.EventHandler(this.btnStartSimulation_Click);
 			// 
+			// btnAddSimCase
+			// 
+			this.btnAddSimCase.Location = new System.Drawing.Point(12, 4);
+			this.btnAddSimCase.Name = "btnAddSimCase";
+			this.btnAddSimCase.Size = new System.Drawing.Size(97, 23);
+			this.btnAddSimCase.TabIndex = 2;
+			this.btnAddSimCase.Text = "Add Sim Case";
+			this.btnAddSimCase.UseVisualStyleBackColor = true;
+			this.btnAddSimCase.Click += new System.EventHandler(this.btnAddSimCase_Click);
+			// 
 			// fSfSim2
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1364, 480);
+			this.ClientSize = new System.Drawing.Size(842, 480);
+			this.Controls.Add(this.btnAddSimCase);
 			this.Controls.Add(this.btnStartSimulation);
 			this.Controls.Add(this.flpSimulations);
 			this.Name = "fSfSim2";
@@ -70,6 +82,7 @@
 
 		private System.Windows.Forms.FlowLayoutPanel flpSimulations;
 		private System.Windows.Forms.Button btnStartSimulation;
+		private System.Windows.Forms.Button btnAddSimCase;
 	}
 }
 

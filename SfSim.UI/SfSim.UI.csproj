@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\SimCaseListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SimCaseListItem.Designer.cs">
+      <DependentUpon>SimCaseListItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SimCasePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     <Compile Include="SimCaseDetailsForm.Designer.cs">
       <DependentUpon>SimCaseDetailsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controls\SimCaseListItem.resx">
+      <DependentUpon>SimCaseListItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\SimCasePanel.resx">
       <DependentUpon>SimCasePanel.cs</DependentUpon>
     </EmbeddedResource>

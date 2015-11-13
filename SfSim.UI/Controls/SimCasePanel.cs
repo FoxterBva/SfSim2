@@ -24,14 +24,45 @@ namespace SfSim.UI.Controls
 			this.simCase = simCase;
 
 			lblSimName.Text = simCase.Name;
+			lblTalents.Text = simCase.TalentsStr;
+			lblSymbols.Text = simCase.SymbolsStr;
 
 			SetColor();
+		}
+
+		public SimulationCase GetValues()
+		{
+			return simCase;
 		}
 
 		public void RefreshProgress(double percent)
 		{
 			lblStatus.Text = percent + "%";
 			lblStatus.Refresh();
+		}
+
+		public void RefreshSimResult(SimulationResult res)
+		{
+			lblMinDps.Text = res.MinDps.ToString();
+			lblMaxDps.Text = res.MaxDps.ToString();
+			lblAvrgDps.Text = res.AvrgDps.ToString();
+
+			lblMinDps.Refresh();
+			lblMaxDps.Refresh();
+			lblAvrgDps.Refresh();
+		}
+
+		public void ResetDisplayedResult()
+		{
+			lblStatus.Text = "status";
+			lblMinDps.Text = "MinDps";
+			lblMaxDps.Text = "MaxDps";
+			lblAvrgDps.Text = "AvrgDps";
+
+			lblStatus.Refresh();
+			lblMinDps.Refresh();
+			lblMaxDps.Refresh();
+			lblAvrgDps.Refresh();
 		}
 
 		private void cbIsSelected_CheckedChanged(object sender, EventArgs e)
@@ -57,11 +88,11 @@ namespace SfSim.UI.Controls
 		{
 			var editForm = new SimCaseDetailsForm();
 			editForm.SetValues(simCase);
-			editForm.Submitted += new SimCaseEditEventHandler(editForm_Submitted);
+			editForm.Submitted += new SimCaseEventHandler(editForm_Submitted);
 			editForm.ShowDialog();
 		}
 
-		void editForm_Submitted(object sender, SimCaseEditFormEventArgs e)
+		void editForm_Submitted(object sender, SimCaseEventArgs e)
 		{
 			SetValues(e.SimCase);
 		}

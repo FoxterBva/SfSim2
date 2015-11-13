@@ -30,20 +30,32 @@ namespace SfSim.UI
 			simCases = new List<SimulationCase>() { 
 				new SimulationCase() { Name = "Sim 1", IterationCount = 10 },
 				new SimulationCase() { Name = "Sim 2", IterationCount = 10 },
-				new SimulationCase() { Name = "Sim 3", IterationCount = 10 },
-				new SimulationCase() { Name = "Sim 4", IterationCount = 10 },
-				new SimulationCase() { Name = "Sim 5", IterationCount = 10 },
-				new SimulationCase() { Name = "Sim 6", IterationCount = 10 },
-				new SimulationCase() { Name = "Sim 7", IterationCount = 10 }
+				new SimulationCase() { Name = "Sim 3", IterationCount = 10 }
 			};
 
 			foreach (var simCase in simCases)
 			{
-				var simPanel = new SimCasePanel();
-				simPanel.SetValues(simCase);
-				simPanel.Width = flpSimulations.Width - 25;
-				flpSimulations.Controls.Add(simPanel);
+				CreateSimCaseListItem(simCase);
 			}
+		}
+
+		void simPanelItem_OnDelete(object sender, EventArgs e)
+		{
+			flpSimulations.Controls.Remove(sender as SimCaseListItem);
+		}
+
+		void simPanelItem_OnCopy(object sender, SimCaseEventArgs e)
+		{
+			CreateSimCaseListItem(e.SimCase);
+		}
+
+		void CreateSimCaseListItem(SimulationCase simCase)
+		{
+			var simPanelItem = new SimCaseListItem();
+			simPanelItem.SimCasePanel.SetValues(simCase);
+			simPanelItem.OnCopy += new SimCaseEventHandler(simPanelItem_OnCopy);
+			simPanelItem.OnDelete += new EventHandler(simPanelItem_OnDelete);
+			flpSimulations.Controls.Add(simPanelItem);
 		}
 
 		void TestSimulation(SimCasePanel panel)
@@ -67,33 +79,41 @@ namespace SfSim.UI
 				}
 			}
 			panel.RefreshProgress(100);
+			panel.RefreshSimResult(new SimulationResult() { AvrgDps = 32754.34, MaxDps = 39541.61, MinDps = 25198.92 });
 		}
 
 		#endregion
 
 		private void btnStartSimulation_Click(object sender, EventArgs e)
 		{
-			foreach (var simPanel in flpSimulations.Controls)
+			// Clear progress
+			foreach (var simListItem in flpSimulations.Controls)
 			{
-				if (simPanel is SimCasePanel)
+				if (simListItem is SimCaseListItem)
 				{
-					(simPanel as SimCasePanel).RefreshProgress(0);
+					(simListItem as SimCaseListItem).SimCasePanel.ResetDisplayedResult();
 				}
 			}
 
-			foreach (var simPanel in flpSimulations.Controls)
+			// Start processing
+			foreach (var simListItem in flpSimulations.Controls)
 			{
-				if (simPanel is SimCasePanel)
+				if (simListItem is SimCaseListItem)
 				{
-					if ((simPanel as SimCasePanel).IsSelected)
+					if ((simListItem as SimCaseListItem).SimCasePanel.IsSelected)
 					{ 
 						// Starts simulation
-						TestSimulation(simPanel as SimCasePanel);
+						TestSimulation((simListItem as SimCaseListItem).SimCasePanel);
 					}
 				}
 			}
 
 			MessageBox.Show("Completed!");
+		}
+
+		private void btnAddSimCase_Click(object sender, EventArgs e)
+		{
+			CreateSimCaseListItem(new SimulationCase());
 		}
 	}
 }

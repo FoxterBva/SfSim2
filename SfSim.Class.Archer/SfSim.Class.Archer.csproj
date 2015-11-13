@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{09730A41-DF13-4168-83BA-7B48145CA9D1}</ProjectGuid>
+    <ProjectGuid>3cd4172f-f94b-4f7f-a037-5c3fa947e940</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SfSim.Model</RootNamespace>
-    <AssemblyName>SfSim.Model</AssemblyName>
+    <RootNamespace>SfSim.Class.Archer</RootNamespace>
+    <AssemblyName>SfSim.Class.Archer</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,9 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Classes\ActorStats.cs" />
-    <Compile Include="Classes\SimulationCase.cs" />
-    <Compile Include="Classes\SimulationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

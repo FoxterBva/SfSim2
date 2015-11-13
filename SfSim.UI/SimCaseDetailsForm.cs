@@ -20,6 +20,18 @@ namespace SfSim.UI
 		public void SetValues(SimulationCase simCase)
 		{
 			tbSimName.Text = simCase.Name;
+			tbIterations.Value = simCase.IterationCount;
+			tbMaxHp.Value = simCase.TargetMaxHp;
+
+			tbMight.Value = simCase.SourceStats.Might;
+			tbStam.Value = simCase.SourceStats.Stamina;
+			tbStr.Value = simCase.SourceStats.Str;
+			tbBrave.Value = simCase.SourceStats.Brave;
+			tbLuck.Value = simCase.SourceStats.Luck;
+			tbSpirit.Value = simCase.SourceStats.Spirit;
+
+			rtbSymbols.Text = simCase.SymbolsStr;
+			rtbTalents.Text = simCase.TalentsStr;
 		}
 
 		SimulationCase GetValues()
@@ -27,16 +39,28 @@ namespace SfSim.UI
 			var res = new SimulationCase();
 
 			res.Name = tbSimName.Text;
+			res.IterationCount = Convert.ToInt32(tbIterations.Value);
+			res.TargetMaxHp = Convert.ToInt32(tbMaxHp.Value);
+
+			res.SourceStats.Might = Convert.ToInt32(tbMight.Value);
+			res.SourceStats.Stamina = Convert.ToInt32(tbStam.Value);
+			res.SourceStats.Str = Convert.ToInt32(tbStr.Value);
+			res.SourceStats.Brave = Convert.ToInt32(tbBrave.Value);
+			res.SourceStats.Luck = Convert.ToInt32(tbLuck.Value);
+			res.SourceStats.Spirit = Convert.ToInt32(tbSpirit.Value);
+
+			res.SymbolsStr = rtbSymbols.Text;
+			res.TalentsStr = rtbTalents.Text;
 
 			return res;
 		}
 
-		public event SimCaseEditEventHandler Submitted;
+		public event SimCaseEventHandler Submitted;
 
 		private void btnSave_Click(object sender, EventArgs e)
 		{
 			if (Submitted != null)
-				Submitted(this, new SimCaseEditFormEventArgs(GetValues()));
+				Submitted(this, new SimCaseEventArgs(GetValues()));
 
 			this.Close();
 		}
@@ -47,11 +71,11 @@ namespace SfSim.UI
 		}
 	}
 
-	public delegate void SimCaseEditEventHandler(object sender, SimCaseEditFormEventArgs e);
+	public delegate void SimCaseEventHandler(object sender, SimCaseEventArgs e);
 
-	public class SimCaseEditFormEventArgs : EventArgs
+	public class SimCaseEventArgs : EventArgs
 	{
-		public SimCaseEditFormEventArgs(SimulationCase simCase) 
+		public SimCaseEventArgs(SimulationCase simCase) 
 			: base()
 		{
 			SimCase = simCase;

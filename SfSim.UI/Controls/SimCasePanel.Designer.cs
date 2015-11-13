@@ -35,6 +35,10 @@
 			this.lblMaxDps = new System.Windows.Forms.Label();
 			this.lblAvrgDps = new System.Windows.Forms.Label();
 			this.btnEdit = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.lblTalents = new System.Windows.Forms.Label();
+			this.lblSymbols = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// cbIsSelected
@@ -50,9 +54,10 @@
 			// lblSimName
 			// 
 			this.lblSimName.AutoSize = true;
+			this.lblSimName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.lblSimName.Location = new System.Drawing.Point(62, 3);
 			this.lblSimName.Name = "lblSimName";
-			this.lblSimName.Size = new System.Drawing.Size(52, 13);
+			this.lblSimName.Size = new System.Drawing.Size(59, 13);
 			this.lblSimName.TabIndex = 1;
 			this.lblSimName.Text = "SimName";
 			// 
@@ -68,7 +73,7 @@
 			// lblMinDps
 			// 
 			this.lblMinDps.AutoSize = true;
-			this.lblMinDps.Location = new System.Drawing.Point(598, 4);
+			this.lblMinDps.Location = new System.Drawing.Point(518, 4);
 			this.lblMinDps.Name = "lblMinDps";
 			this.lblMinDps.Size = new System.Drawing.Size(43, 13);
 			this.lblMinDps.TabIndex = 3;
@@ -77,7 +82,7 @@
 			// lblMaxDps
 			// 
 			this.lblMaxDps.AutoSize = true;
-			this.lblMaxDps.Location = new System.Drawing.Point(598, 22);
+			this.lblMaxDps.Location = new System.Drawing.Point(518, 21);
 			this.lblMaxDps.Name = "lblMaxDps";
 			this.lblMaxDps.Size = new System.Drawing.Size(46, 13);
 			this.lblMaxDps.TabIndex = 4;
@@ -86,15 +91,16 @@
 			// lblAvrgDps
 			// 
 			this.lblAvrgDps.AutoSize = true;
-			this.lblAvrgDps.Location = new System.Drawing.Point(598, 41);
+			this.lblAvrgDps.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.lblAvrgDps.Location = new System.Drawing.Point(593, 4);
 			this.lblAvrgDps.Name = "lblAvrgDps";
-			this.lblAvrgDps.Size = new System.Drawing.Size(48, 13);
+			this.lblAvrgDps.Size = new System.Drawing.Size(69, 17);
 			this.lblAvrgDps.TabIndex = 5;
 			this.lblAvrgDps.Text = "AvrgDps";
 			// 
 			// btnEdit
 			// 
-			this.btnEdit.Location = new System.Drawing.Point(484, 41);
+			this.btnEdit.Location = new System.Drawing.Point(596, 39);
 			this.btnEdit.Name = "btnEdit";
 			this.btnEdit.Size = new System.Drawing.Size(75, 23);
 			this.btnEdit.TabIndex = 6;
@@ -102,12 +108,52 @@
 			this.btnEdit.UseVisualStyleBackColor = true;
 			this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
 			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(3, 49);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(46, 13);
+			this.label1.TabIndex = 7;
+			this.label1.Text = "Symbols";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(4, 33);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(42, 13);
+			this.label2.TabIndex = 8;
+			this.label2.Text = "Talents";
+			// 
+			// lblTalents
+			// 
+			this.lblTalents.AutoSize = true;
+			this.lblTalents.Location = new System.Drawing.Point(52, 33);
+			this.lblTalents.Name = "lblTalents";
+			this.lblTalents.Size = new System.Drawing.Size(13, 13);
+			this.lblTalents.TabIndex = 9;
+			this.lblTalents.Text = "--";
+			// 
+			// lblSymbols
+			// 
+			this.lblSymbols.AutoSize = true;
+			this.lblSymbols.Location = new System.Drawing.Point(52, 49);
+			this.lblSymbols.Name = "lblSymbols";
+			this.lblSymbols.Size = new System.Drawing.Size(13, 13);
+			this.lblSymbols.TabIndex = 10;
+			this.lblSymbols.Text = "--";
+			// 
 			// SimCasePanel
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.Controls.Add(this.lblSymbols);
+			this.Controls.Add(this.lblTalents);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.btnEdit);
 			this.Controls.Add(this.lblAvrgDps);
 			this.Controls.Add(this.lblMaxDps);
@@ -131,5 +177,9 @@
 		private System.Windows.Forms.Label lblMaxDps;
 		private System.Windows.Forms.Label lblAvrgDps;
 		private System.Windows.Forms.Button btnEdit;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label lblTalents;
+		private System.Windows.Forms.Label lblSymbols;
 	}
 }
